@@ -13,6 +13,9 @@
 # profiling files
 chrome-profiler-events*.json
 
+# ignore all files under folder cache 
+cache/
+
 # IDEs and editors
 /.idea
 .project

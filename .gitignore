@@ -14,7 +14,7 @@
 chrome-profiler-events*.json
 
 # ignore all files under folder cache 
-cache/
+.angular/
 
 # IDEs and editors
 /.idea

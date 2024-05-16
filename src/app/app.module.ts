@@ -15,6 +15,7 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { DefaultRouteComponent } from './shared/default-route/default-route.component';
 import { AppRoutingModule } from './app-routing.module';
 import { GenericMessageComponent } from './shared/generic-message/generic-message.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { GenericMessageComponent } from './shared/generic-message/generic-messag
     ShoppingEditComponent,
     DropdownDirective,
     DefaultRouteComponent,
-    GenericMessageComponent
+    GenericMessageComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,

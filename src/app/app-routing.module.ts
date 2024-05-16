@@ -5,6 +5,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { DefaultRouteComponent } from './shared/default-route/default-route.component';
 import { GenericMessageComponent } from './shared/generic-message/generic-message.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -17,7 +18,16 @@ const routes: Routes = [
         component: GenericMessageComponent,
       },
       {
-        path: ':id', component: RecipeDetailComponent
+        path: 'new',
+        component: RecipeEditComponent,
+      },
+      {
+        path: ':id',
+        component: RecipeDetailComponent,
+      },
+      {
+        path: ':id/edit',
+        component: RecipeEditComponent
       }
     ]
   },

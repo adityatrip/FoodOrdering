@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -16,6 +16,10 @@ import { DefaultRouteComponent } from './shared/default-route/default-route.comp
 import { AppRoutingModule } from './app-routing.module';
 import { GenericMessageComponent } from './shared/generic-message/generic-message.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
+import { JsSimpleFormComponent } from './forms/js-simple-form/js-simple-form.component';
+import { FormsComponent } from './forms/forms.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +34,16 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     DropdownDirective,
     DefaultRouteComponent,
     GenericMessageComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
+    TemplateDrivenComponent,
+    JsSimpleFormComponent,
+    FormsComponent,
+    ReactiveComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],

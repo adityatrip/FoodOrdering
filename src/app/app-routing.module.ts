@@ -6,6 +6,10 @@ import { DefaultRouteComponent } from './shared/default-route/default-route.comp
 import { GenericMessageComponent } from './shared/generic-message/generic-message.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
+import { FormsComponent } from './forms/forms.component';
+import { JsSimpleFormComponent } from './forms/js-simple-form/js-simple-form.component';
+import { ReactiveComponent } from './forms/reactive/reactive.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -32,6 +36,14 @@ const routes: Routes = [
     ]
   },
   { path: "shopping-list", component: ShoppingListComponent },
+  { path: "form", component: FormsComponent,
+    children: [
+      { path: 'js', component: JsSimpleFormComponent},
+      { path: 'td', component: TemplateDrivenComponent},
+      { path: 'reactive', component: ReactiveComponent},
+      { path: "**", component: DefaultRouteComponent}
+    ]
+  },
   { path: "**", component: DefaultRouteComponent}
 ];
 

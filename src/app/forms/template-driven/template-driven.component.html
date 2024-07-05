@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <h4>This is Template driven Angular form</h4>
+    <div class="col-xs-8">
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div id="user-data" ngModelGroup="userData">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control" ngModel required>
+          </div>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <input type="email" id="email" class="form-control" ngModel name="email" required email #email="ngModel">
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="secret">Secret Questions</label>
+          <select id="secret" class="form-control" ngModel name="secret" [ngModel]="defaultValue">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select>
+        </div>
+        <!-- div for 2 way binging -->
+        <div class="form-group">
+          <textarea class="form-control" name="questionAnswer" rows="3" [(ngModel)]="answer"></textarea>
+        </div>
+        <!-- <p>Your reply: {{answer}}</p> -->
+
+        <!-- radio buttons -->
+        <div class="radio" *ngFor="let gender of genders">
+          <input type="radio" name="gender" ngModel [value]="gender">{{gender}}
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="f.invalid">Submit</button>
+      </form>
+      <!-- <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button> -->
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="formSubmitted">
+    <div>
+      <h3>Your Data:</h3><br>
+      <!-- <p>Username: {{ f?.value?.userData?.username || ''}}</p>
+      <p>Email: {{ f?.value?.userData?.email || ''}}</p>
+      <p>Secret Question: {{ f?.value?.secret || ''}}</p>
+      <p>Answer: {{ f?.value?.questionAnswer || ''}}</p>
+      <p>Gender: {{ f?.value?.gender || ''}}</p> -->
+
+      <p>Username: {{ userDetails.username || ''}}</p>
+      <p>Email: {{ userDetails.email || ''}}</p>
+      <p>Secret Question: {{ userDetails.secretQuestion || ''}}</p>
+      <p>Answer: {{ userDetails.answer || ''}}</p>
+      <p>Gender: {{ userDetails.gender || ''}}</p>
+      <!-- {{ userDetails.username}} {{ userDetails.email}} {{ userDetails.secretQuestion}} {{ userDetails.answer}} {{ userDetails.gender }} -->
+    </div>
+  </div>
+</div>
+  

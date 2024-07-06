@@ -1,0 +1,12 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.validationError {
+    color: red;
+    font-size: x-small;
+}
+
+select.ng-touched.ng-invalid {
+    border: 1px solid red;
+}

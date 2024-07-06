@@ -1,0 +1,62 @@
+<h4>Reactive Form Assignment</h4>
+
+<!-- Create a form with the following Controls and Validations
+1. Project name should not be empty.
+2. Mail should not be empty and valid email.
+3. Project status Dropdown with 3 values: Stable, Critical and Finished.
+4. Submit button.
+
+Add your own validations which don't allow test as a project name.
+Also implement that validator as an async Validator.
+Upon Submitting the form, simply print the values in console. -->
+
+<div class="container">
+    <form [formGroup]="projectForm" (ngSubmit)="onProjSubmit()">
+        <div class="form-group" id="projectNameDiv">
+            <label for="projName">Project Name</label>
+            <input type="text" id="projName" name="projName" class="form-control" formControlName="projName">
+            <span 
+                class="help-block validationError" 
+                *ngIf="projectForm.get('projName').invalid && projectForm.get('projName').touched && (projectForm.get('projName').value == '' || projectForm.get('projName').value == null) ">
+                Project Name can not be empty. Please provide a Project Name.
+            </span>
+            <span 
+                class="help-block validationError" 
+                *ngIf="checkForbiddenName()">
+                This name is forbidden. Please try different name.
+            </span>
+        </div>
+        <div class="form-group" id="projEmailDiv">
+            <label for="projectEmail">Project Email</label>
+            <input type="email" id="projectEmail" class="form-control" formControlName="projEmail">
+            <span 
+                class="help-block validationError"
+                *ngIf="projectForm.get('projEmail').touched && projectForm.get('projEmail').invalid">
+                Please enter a valid email address.
+            </span>
+        </div>
+        <div class="form-group" id="projectStatusDiv">
+            <label for="projStatus">Project Status</label>
+            <select name="projStatus" class="form-control" id="projStatus" formControlName="projStatus">
+                <option value="Stable">Stable</option>
+                <option value="Critical">Critical</option>
+                <option value="Finished">Finished</option>
+            </select>
+            <span 
+                class="help-block validationError" 
+                *ngIf="projectForm.get('projStatus').touched && projectForm.get('projStatus').invalid">
+                    Please select a project status.
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Info</button>
+    </form>
+</div>
+
+<div class="container" *ngIf="showSubmittedDetails">
+    <p>{{projectForm.value.projEmail}}</p>
+    <p>{{projectForm.value.projName}}</p>
+    <p>{{projectForm.value.projStatus}}</p>
+</div>
+<!-- <img src="../../../assets/Aditya Pic.jpeg" (click)="onImageClick()" style="width: 25%;">
+<span style="font-size: xxx-large;">{{message}}</span> -->

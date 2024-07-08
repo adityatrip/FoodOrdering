@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-gmail-signup24',
@@ -7,8 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GmailSignup24Component implements OnInit {
 
+  gmailForm = new FormGroup({
+    firstName: new FormControl(null, Validators.required),
+    lastName: new FormControl(null, Validators.required),
+    dateOfBirth: new FormGroup({
+      month: new FormControl(null, Validators.maxLength(2)),
+      day: new FormControl(null, Validators.maxLength(2)),
+      year: new FormControl(null, Validators.maxLength(4)),
+    }),
+    gender: new FormControl(null),
+    // add form controls for custom gender post selection in gender.
+    email: new FormControl(null, Validators.email),
+    password: new FormControl(null),
+    passwordConfirm: new FormControl(null),
+    countryPinAndMobile: new FormGroup({
+      countryPin: new FormControl(null, Validators.required),
+      mobileNumber: new FormControl(null, Validators.required)
+    }),
+    confirmCode: new FormControl(null, [Validators.required, Validators.maxLength(6)])
+  });
+
   ngOnInit(): void {
       
+  }
+
+  onSubmit() {
+
   }
 }
 // Gmail Signup Form
@@ -17,7 +42,8 @@ export class GmailSignup24Component implements OnInit {
 // 3. Month, Day, Year. with basic validations. 3 different input boxes, first with a dropdown of months with place holder month, third with label Year, simple input restricting max 4 letters, 2 for day.
 // Day, year must be numeric and day less then 32,  Validations must be case specific. Year can not be more than current year
 // 4. Gender with 4 values: Female, Male, Rather Not Say, Custom
-// When user selects Custom, add first input box with label: 'What's your gender', and second dropdown with Label: 'Please refer to me as' and 3 options: Male, Female, Other
+// When user selects Custom, add first input box with label: 'What's your gender', 
+// and second dropdown with Label: 'Please refer to me as' and 3 options: Male, Female, Other.
 // 5. Show 2 Dynamic Option to select email address with radio buttons and 3rd option to Create your custom Gmail address. Upon clicking 3rd option, we will provide input to enter custom email address.
 // A validation Message: 'That username is taken. Try again.' should be shown after some time.
 // 6. Input to user for entering password

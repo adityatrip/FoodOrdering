@@ -1,1 +1,86 @@
-<p>gmail-signup24 works!</p>
+<h3>Gmail Signup Form </h3>
+<div class="container">
+    <form [formGroup]="gmailForm" (ngSubmit)="onSubmit()">
+        <!-- First Name -->
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" class="form-control" formControlName="firstName">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- Last Name -->
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" class="form-control" formControlName="lastName">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- Date Of Birth -->
+        <div class="form-group" formGroupName="dateOfBirth">
+            <!-- Month -->
+            <div class="form-group">
+                <label for="month">Month</label>
+                <input type="text" id="month" class="form-control" formControlName="month">
+                <span class="help-block validationError" *ngIf="false">This is an error</span>
+            </div>
+            <!-- Day -->
+            <div class="form-group">
+                <label for="day">Day</label>
+                <input type="text" id="day" class="form-control" formControlName="day">
+                <span class="help-block validationError" *ngIf="false">This is an error</span>
+            </div>
+            <!-- Year -->
+            <div class="form-group">
+                <label for="year">Year</label>
+                <input type="text" id="year" class="form-control" formControlName="year">
+                <span class="help-block validationError" *ngIf="false">This is an error</span>
+            </div>
+        </div>
+        <!-- Gender -->
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" id="gender" class="form-control" formControlName="gender">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- Email -->
+        <div class="form-group">
+            <!-- 2 radio buttons with predictions of email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- Password -->
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- Confirm Password -->
+        <div class="form-group">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" id="passwordConfirm" class="form-control" formControlName="passwordConfirm">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <!-- countryPinAndMobile -->
+        <div class="form-group" formGroupName="countryPinAndMobile">
+            <!-- Country Pin -->
+            <div class="form-group">
+                <label for="countryPin">Country Pin</label>
+                <input type="number" id="countryPin" class="form-control" formControlName="countryPin">
+                <span class="help-block validationError" *ngIf="false">This is an error</span>
+            </div>
+            <!-- Mobile Number -->
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="number" id="mobileNumber" class="form-control" formControlName="mobileNumber">
+                <span class="help-block validationError" *ngIf="false">This is an error</span>
+            </div>
+        </div>
+        <!-- Confirm Code -->
+        <div class="form-group">
+            <label for="confirmCode">Confirm Code</label>
+            <input type="text" id="confirmCode" class="form-control" formControlName="confirmCode">
+            <span class="help-block validationError" *ngIf="false">This is an error</span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+</div>

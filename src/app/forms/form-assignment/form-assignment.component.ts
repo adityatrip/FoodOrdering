@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
 export class FormAssignmentComponent implements OnInit {
 
   projectForm = new FormGroup({
-    projName: new FormControl(null, [Validators.required, this.checkForbiddenProjectName], this.asyncCheckForbiddenProjectName),
+    projName: new FormControl(null, [Validators.required, this.checkForbiddenProjectName], this.asyncCheckForbiddenProjectName.bind(this)),
     // projName: new FormControl(null, [Validators.required], this.asyncCheckForbiddenProjectName.bind(this)),
     projEmail: new FormControl(null, [Validators.required, Validators.email]),
     projStatus: new FormControl(null, Validators.required)

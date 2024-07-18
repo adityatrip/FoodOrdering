@@ -3,3 +3,27 @@
 .pointer {
     cursor: pointer;
 }
+
+.validationError {
+    color: red;
+    font-size: x-small;
+    margin-top: 3px;
+}
+
+/* input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+select.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+input.ng-valid.ng-touched {
+    border: 1px solid green;
+}
+
+select.ng-touched.ng-valid {
+    border: 1px solid green;
+} */
+
+

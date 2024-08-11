@@ -1,0 +1,15 @@
+<div class="form-group col-xs-3">
+    <form [formGroup]="postForm" (ngSubmit)="onSubmitPost()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" formControlName="title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" name="description" formControlName="description" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="button" class="btn btn-primary" (click)="onDeleteAllPosts()">Delete All</button>
+        <button type="button" class="btn btn-primary" (click)="onFetchAllPosts()">Fetch All</button>
+    </form>
+</div>

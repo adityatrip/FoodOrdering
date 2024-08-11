@@ -10,6 +10,9 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { FormsComponent } from './forms/forms.component';
 import { JsSimpleFormComponent } from './forms/js-simple-form/js-simple-form.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
+import { FormAssignmentComponent } from './forms/form-assignment/form-assignment.component';
+import { GmailSignup24Component } from './forms/gmail-signup24/gmail-signup24.component';
+import { PipeComponent } from './pipes/pipe/pipe.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full'},
@@ -38,9 +41,11 @@ const routes: Routes = [
   { path: "shopping-list", component: ShoppingListComponent },
   { path: "form", component: FormsComponent,
     children: [
-      { path: 'js', component: JsSimpleFormComponent},
+      { path: 'js', component: PipeComponent},
       { path: 'td', component: TemplateDrivenComponent},
       { path: 'reactive', component: ReactiveComponent},
+      { path: 'formAssignment', component: FormAssignmentComponent},
+      { path: 'gmail', component: GmailSignup24Component},
       { path: "**", component: DefaultRouteComponent}
     ]
   },

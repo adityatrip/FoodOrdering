@@ -20,6 +20,13 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { JsSimpleFormComponent } from './forms/js-simple-form/js-simple-form.component';
 import { FormsComponent } from './forms/forms.component';
 import { ReactiveComponent } from './forms/reactive/reactive.component';
+import { FormAssignmentComponent } from './forms/form-assignment/form-assignment.component';
+import { GmailSignup24Component } from './forms/gmail-signup24/gmail-signup24.component';
+import { ShoppingListService } from './services/shopping-list.service';
+import { RecipeService } from './services/recipe.service';
+import { PipeComponent } from './pipes/pipe/pipe.component';
+import { PostComponent } from './post/post.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -38,15 +45,20 @@ import { ReactiveComponent } from './forms/reactive/reactive.component';
     TemplateDrivenComponent,
     JsSimpleFormComponent,
     FormsComponent,
-    ReactiveComponent
+    ReactiveComponent,
+    FormAssignmentComponent,
+    GmailSignup24Component,
+    PipeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ShoppingListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

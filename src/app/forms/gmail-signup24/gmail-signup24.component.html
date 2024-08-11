@@ -1,0 +1,146 @@
+<h3>Gmail Signup Form </h3>
+<div class="container">
+    <form [formGroup]="gmailForm" (ngSubmit)="onSubmit()">
+        <div formGroupName="completeName">
+            <!-- First Name -->
+            <div class="formGroupNameCss col-xs-6">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('completeName.firstName')?.touched && gmailForm.get('completeName.firstName').getError('required')">
+                    First name is required.
+                </span>
+            </div>
+            <!-- Last Name -->
+            <div class="formGroupNameCss col-xs-6">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" class="form-control" formControlName="lastName">
+                <span class="help-block validationError"
+                    *ngIf="gmailForm.get('completeName.lastName')?.touched && gmailForm.get('completeName.lastName').getError('required')">
+                    Last Name is required.
+                </span>
+            </div>
+        </div>
+        
+        <!-- Date Of Birth -->
+        <div formGroupName="dateOfBirth">
+            <!-- Month -->
+            <div class="formGroupNameCss col-xs-4">
+                <label for="month">Birth Month</label>                
+                <select type="text" id="month" class="form-control" formControlName="month">
+                    <option value="monthName" *ngFor="let monthName of monthArr">{{monthName}}</option>
+                </select>
+            </div>
+            <!-- Day -->
+            <div class="formGroupNameCss col-xs-4">
+                <label for="day">Birth Day</label>
+                <input type="text" id="day" class="form-control" formControlName="day">
+                <span class="help-block validationError" *ngIf="gmailForm.get('dateOfBirth.day')?.touched && gmailForm.get('dateOfBirth.day').getError('required')">Day is required.</span>
+            </div>
+            <!-- Year -->
+            <div class="formGroupNameCss col-xs-4">
+                <label for="year">Birth Year</label>
+                <input type="text" id="year" class="form-control" formControlName="year">
+                <span class="help-block validationError" *ngIf="gmailForm.get('dateOfBirth.year')?.touched && gmailForm.get('dateOfBirth.year').getError('required')">Year is required.</span>
+            </div>
+        </div>
+        <!-- Gender -->
+        <div class="marginBottom2">
+            <label for="gender">Gender</label>
+            <select type="text" id="gender" class="form-control" formControlName="gender" (change)="onGenderSelect()">
+                <option *ngFor="let genderVal of genders">{{genderVal}}</option>
+            </select>
+            <span class="help-block validationError" *ngIf=""></span>
+        </div>
+        <!-- Email -->
+        <div class="marginBottom2">
+            <!-- 2 radio buttons with predictions of email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+            <span class="help-block validationError" *ngIf="gmailForm.get('email')?.touched && gmailForm.get('email').getError('email')">Enter a valid email.</span>
+            <span class="help-block validationError" *ngIf="gmailForm.get('email')?.touched && gmailForm.get('email').getError('required')">Email is required.</span>
+            <span class="help-block validationError" *ngIf="gmailForm.get('email')?.touched && gmailForm.get('email').getError('existingEmail')">Email Id is already in use. Please use different email.</span>
+        </div>
+        <!-- Password -->
+        <div class="marginBottom2">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password">
+            <span class="help-block validationError" *ngIf="gmailForm.get('password').touched && gmailForm.get('password').hasError('required')">
+                Password is required.
+            </span>
+        </div>
+        <!-- Confirm Password -->
+        <div class="marginBottom2">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" id="passwordConfirm" class="form-control" formControlName="passwordConfirm">
+            <span class="help-block validationError" *ngIf="gmailForm.get('passwordConfirm').touched">
+                <span *ngIf="gmailForm.get('passwordConfirm').value !== gmailForm.get('password').value">
+                    Password does not match.
+                </span>
+                <span *ngIf="gmailForm.get('passwordConfirm').hasError('required')">
+                    Password is required.
+                </span>
+            </span>
+        </div>
+        <!-- countryPinAndMobile -->
+        <div formGroupName="countryPinAndMobile" class="col-xs-7">
+            <!-- Country Pin -->
+            <div class="formGroupNameCss col-xs-4">
+                <label for="countryPin">Country Pin</label>
+                <input type="text" id="countryPin" class="form-control" formControlName="countryPin">
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.countryPin').touched && gmailForm.get('countryPinAndMobile.countryPin').hasError('required')">
+                    Country pin is required.
+                </span>
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.countryPin').touched && gmailForm.get('countryPinAndMobile.countryPin').hasError('isAlphabet')">
+                    Country pin can contain digits only.
+                </span>
+            </div>
+            <!-- Mobile Number -->
+            <div class="formGroupNameCss col-xs-8">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="text" id="mobileNumber" class="form-control" formControlName="mobileNumber">
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.mobileNumber')?.touched && gmailForm.get('countryPinAndMobile.mobileNumber').hasError('required')">
+                    Mobile number is required.
+                </span>
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.mobileNumber')?.touched && gmailForm.get('countryPinAndMobile.mobileNumber').hasError('isAlphabet')">
+                    Mobile number can have digits only.
+                </span>
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.mobileNumber')?.touched && gmailForm.get('countryPinAndMobile.mobileNumber').hasError('maxlength')">
+                    Mobile number can not be more than 10 digits.
+                </span>
+                <span class="help-block validationError" 
+                    *ngIf="gmailForm.get('countryPinAndMobile.mobileNumber')?.touched && gmailForm.get('countryPinAndMobile.mobileNumber').hasError('minlength')">
+                    Mobile number can not be less than 10 digits.
+                </span>
+            </div>
+        </div>
+        <!-- Confirm Code -->
+        <div class="marginBottom2 col-xs-5">
+            <label for="confirmCode">Confirm Code</label>
+            <input type="text" id="confirmCode" class="form-control" formControlName="confirmCode">
+            <span class="help-block validationError" 
+                *ngIf="gmailForm.get('confirmCode')?.touched && gmailForm.get('confirmCode').hasError('required')">
+                Confirmation code is required.
+            </span>
+            <span class="help-block validationError" 
+                *ngIf="gmailForm.get('confirmCode')?.touched && gmailForm.get('confirmCode').getError('isAlphabet')">
+                Confirmation code can have digits only.
+            </span>
+            <span class="help-block validationError" 
+                *ngIf="gmailForm.get('confirmCode')?.touched && gmailForm.get('confirmCode').hasError('maxlength')">
+                Confirmation code can not be greater than 6 digits
+            </span>
+            <span class="help-block validationError" 
+                *ngIf="gmailForm.get('confirmCode')?.touched && gmailForm.get('confirmCode').hasError('minlength')">
+                Confirmation code can not be less than 6 digits.
+            </span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <br>
+</div>

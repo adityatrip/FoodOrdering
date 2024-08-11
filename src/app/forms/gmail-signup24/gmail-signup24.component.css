@@ -1,0 +1,25 @@
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+
+input.ng-touched.ng-valid {
+    border: 1.5px solid green;
+}
+
+/* .form-control {
+    width: 50% !important;
+} */
+.nameWidth {
+    width: 45% !important;
+}
+
+.formGroupNameCss {
+    margin-bottom: 2%;
+    height: 55px;
+}
+
+.marginBottom2 {
+    margin-bottom: 2%;
+    /* height: 55px; */
+}
+

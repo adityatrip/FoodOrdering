@@ -22,9 +22,6 @@ export class ReactiveComponent implements OnInit {
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
     });
-    // this.signupForm.valueChanges.subscribe((value) => {
-    //   console.log(value);
-    // });
     this.signupForm.get('userData.email').valueChanges.subscribe((value) => {
       console.log(value);
     });
